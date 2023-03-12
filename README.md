@@ -1,4 +1,5 @@
 # imageUpload
+upload image to server 
 
 ## backend:
  Using Express, node , multer handle image upload
