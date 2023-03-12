@@ -2,6 +2,8 @@
 
 # backend:
  Using Express, node , multer handle image upload
-#frontend
+ 
+ 
+# frontend
 using ejs as html engine to rendr page
  
