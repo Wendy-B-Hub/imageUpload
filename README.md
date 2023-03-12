@@ -5,5 +5,5 @@
  
  
 ## frontend
-using ejs as html engine to rendr page
+using ejs as html engine to render page
  
