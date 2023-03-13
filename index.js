@@ -34,10 +34,10 @@ const upload=multer({
 })
 
 
-app.get('/',(req,res)=>{
-  // res.send("this is image upload homepage")
-  res.render('imageUpload')
-})
+// app.get('/',(req,res)=>{
+//   // res.send("this is image upload homepage")
+//   res.render('imageUpload')
+// })
 
 
 // upload single image
@@ -58,13 +58,25 @@ app.post("/single",upload.single("image"),async (req,res)=>{
     console.log("cannot save")
     console.log(err)
   })
-
 })
 
 //upload multiple images,with max counts of files allowed to upload
 app.post("/many",upload.array("manyImages",5),async(req,res)=>{
   res.send("uploaded")
 })
+
+
+app.get("/",(req,res)=>{
+  res.render('s3BucketImage')
+})
+
+//using s3 bucket get upload url
+app.get("/s3Url",async (req,res)=>{
+  const url = await generateUploadUrl()
+  console.log(url)
+  res.send({url})
+})
+
 
  app.listen(port,()=>{
   console.log(`app is listining to ${port} port , ${new Date()}`)
